@@ -75,47 +75,47 @@ func AddMenuItem(title string, tooltip string) *MenuItem {
 
 // SetTitle set the text to display on a menu item
 func (item *MenuItem) SetTitle(title string) {
-	item.title = title
+	item.Title = title
 	item.update()
 }
 
 // SetTooltip set the tooltip to show when mouse hover
 func (item *MenuItem) SetTooltip(tooltip string) {
-	item.tooltip = tooltip
+	item.Tooltip = tooltip
 	item.update()
 }
 
 // Disabled checkes if the menu item is disabled
-func (item *MenuItem) Disabled() bool {
-	return item.disabled
+func (item *MenuItem) IsDisabled() bool {
+	return item.Disabled
 }
 
 // Enable a menu item regardless if it's previously enabled or not
 func (item *MenuItem) Enable() {
-	item.disabled = false
+	item.Disabled = false
 	item.update()
 }
 
 // Disable a menu item regardless if it's previously disabled or not
 func (item *MenuItem) Disable() {
-	item.disabled = true
+	item.Disabled = true
 	item.update()
 }
 
 // Checked returns if the menu item has a check mark
-func (item *MenuItem) Checked() bool {
-	return item.checked
+func (item *MenuItem) IsChecked() bool {
+	return item.Checked
 }
 
 // Check a menu item regardless if it's previously checked or not
 func (item *MenuItem) Check() {
-	item.checked = true
+	item.Checked = true
 	item.update()
 }
 
 // Uncheck a menu item regardless if it's previously unchecked or not
 func (item *MenuItem) Uncheck() {
-	item.checked = false
+	item.Checked = false
 	item.update()
 }
 
@@ -123,7 +123,7 @@ func (item *MenuItem) Uncheck() {
 func (item *MenuItem) update() {
 	menuItemsLock.Lock()
 	defer menuItemsLock.Unlock()
-	menuItems[item.id] = item
+	menuItems[item.Id] = item
 	addOrUpdateMenuItem(item)
 }
 
