@@ -20,15 +20,15 @@ type MenuItem struct {
 	ClickedCh chan interface{}
 
 	// id uniquely identify a menu item, not supposed to be modified
-	id int32
+	Id int32
 	// title is the text shown on menu item
-	title string
+	Title string
 	// tooltip is the text shown when pointing to menu item
-	tooltip string
+	Tooltip string
 	// disabled menu item is grayed out and has no effect when clicked
-	disabled bool
+	Disabled bool
 	// checked menu item has a tick before the title
-	checked bool
+	Checked bool
 }
 
 var (
